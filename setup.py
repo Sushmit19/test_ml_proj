@@ -12,6 +12,8 @@ def get_package(file_path:str)->List[str]:
         requirements=[req.replace("/n","") for req in requirements]
     if hyphen_e_dot in requirements:
         requirements.remove(hyphen_e_dot)
+    
+    return requirements
 
 setup(
     name='test_ml_proj',
@@ -19,5 +21,5 @@ setup(
     author='Susmit',
     author_email='sushmitgawade@gmail.com',
     packages=find_packages(),
-    install_requires=['pandas','numpy']
+    install_requires=get_package('requirements.txt')
 )
